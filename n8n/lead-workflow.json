@@ -1,0 +1,91 @@
+{
+  "name": "Proton ISF — Website lead → GoHighLevel + Telegram",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "protonisf-lead",
+        "responseMode": "onReceived",
+        "options": {}
+      },
+      "id": "a1",
+      "name": "Webhook protonisf.com",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [240, 300],
+      "webhookId": "protonisf-lead"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": { "caseSensitive": true, "typeValidation": "loose" },
+          "conditions": [
+            {
+              "leftValue": "={{ $json.headers['x-webhook-secret'] }}",
+              "rightValue": "={{ $env.PROTONISF_WEBHOOK_SECRET }}",
+              "operator": { "type": "string", "operation": "equals" }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "a2",
+      "name": "Kiểm tra secret",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://services.leadconnectorhq.com/contacts/upsert",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Authorization", "value": "=Bearer {{ $env.GHL_PRIVATE_TOKEN }}" },
+            { "name": "Version", "value": "2021-07-28" }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"locationId\": \"{{ $env.GHL_LOCATION_ID }}\",\n  \"name\": {{ JSON.stringify($json.body.name) }},\n  \"email\": {{ JSON.stringify($json.body.email) }},\n  \"phone\": {{ JSON.stringify($json.body.phone || '') }},\n  \"companyName\": {{ JSON.stringify($json.body.company || '') }},\n  \"country\": {{ JSON.stringify($json.body.country || '') }},\n  \"source\": \"protonisf.com\",\n  \"tags\": [\"protonisf\", \"lang-{{ $json.body.lang }}\", \"{{ $json.body.interest }}\", \"{{ $json.body.model }}\", \"{{ $json.body.type }}\"]\n}",
+        "options": {}
+      },
+      "id": "a3",
+      "name": "GoHighLevel: upsert contact",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [700, 220]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://services.leadconnectorhq.com/contacts/{{ $json.contact.id }}/notes",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Authorization", "value": "=Bearer {{ $env.GHL_PRIVATE_TOKEN }}" },
+            { "name": "Version", "value": "2021-07-28" }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"body\": {{ JSON.stringify('Website protonisf.com\\nLĩnh vực: ' + $('Webhook protonisf.com').item.json.body.interest + '\\nMô hình: ' + $('Webhook protonisf.com').item.json.body.model + '\\nTrang: ' + ($('Webhook protonisf.com').item.json.body.source_page || '') + '\\nUTM: ' + JSON.stringify($('Webhook protonisf.com').item.json.body.utm || {}) + '\\n\\n' + ($('Webhook protonisf.com').item.json.body.message || '')) }}\n}",
+        "options": {}
+      },
+      "id": "a4",
+      "name": "GoHighLevel: ghi chú",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [940, 220]
+    }
+  ],
+  "connections": {
+    "Webhook protonisf.com": { "main": [[{ "node": "Kiểm tra secret", "type": "main", "index": 0 }]] },
+    "Kiểm tra secret": { "main": [[{ "node": "GoHighLevel: upsert contact", "type": "main", "index": 0 }], []] },
+    "GoHighLevel: upsert contact": { "main": [[{ "node": "GoHighLevel: ghi chú", "type": "main", "index": 0 }]] }
+  },
+  "settings": { "executionOrder": "v1" },
+  "meta": { "note": "Telegram được gửi trực tiếp từ /api/lead của website nên workflow này chỉ lo CRM. Cần biến môi trường n8n: PROTONISF_WEBHOOK_SECRET, GHL_PRIVATE_TOKEN, GHL_LOCATION_ID." }
+}
