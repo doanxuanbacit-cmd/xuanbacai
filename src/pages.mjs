@@ -167,7 +167,7 @@ ${secHead(A.stack.kicker, A.stack.title, A.stack.text)}
 </div></section>
 <section class="section dark"><div class="wrap grid-2">
 <div class="rv"><p class="kicker">${A.lab.kicker}</p><h2 style="color:#fff">${A.lab.title}</h2><p class="lead" style="margin-top:18px">${A.lab.text}</p>
-<div style="font-size:clamp(56px,8vw,96px);font-weight:800;letter-spacing:-.04em;color:var(--teal-300);line-height:1;margin-top:28px" class="num">1 = 8–10</div><p style="color:#9FB0B9;margin-top:8px">${A.lab.eq}</p></div>
+<div style="font-size:clamp(56px,8vw,96px);font-weight:800;letter-spacing:-.04em;color:var(--teal-300);line-height:1;margin-top:28px" class="num">1 = 8–10</div><p style="color:#A3B1C2;margin-top:8px">${A.lab.eq}</p></div>
 <div class="rv">${bullets(A.lab.bullets)}<div style="margin-top:28px">${btn(A.lab.btn, href('part', lang), 'ghost')}</div></div>
 </div></section>
 <section class="section"><div class="wrap">
@@ -228,10 +228,10 @@ const archSvg = (layers) => {
     boxes.forEach((b, i) => {
       const x = x0 + i * (w + 10);
       const hl = r === 1;
-      out += `<rect x="${x}" y="${y}" width="${w}" height="${rowH}" rx="6" fill="${hl ? '#0E7C86' : 'none'}" fill-opacity="${hl ? .1 : 0}" stroke="${hl ? '#0E7C86' : 'currentColor'}" stroke-opacity="${hl ? 1 : .3}" stroke-width="1.4"/>`;
+      out += `<rect x="${x}" y="${y}" width="${w}" height="${rowH}" rx="6" fill="${hl ? '#0F766E' : 'none'}" fill-opacity="${hl ? .1 : 0}" stroke="${hl ? '#0F766E' : 'currentColor'}" stroke-opacity="${hl ? 1 : .3}" stroke-width="1.4"/>`;
       const words = esc(b).split('\n');
       words.forEach((wd, k) => { out += `<text x="${x + w / 2}" y="${y + rowH / 2 + 5 + (k - (words.length - 1) / 2) * 17}" text-anchor="middle" font-size="${k === 0 ? 14 : 12}" font-weight="${k === 0 ? 700 : 400}" fill="currentColor" opacity="${k === 0 ? 1 : .7}">${wd}</text>`; });
-      if (r < layers.length - 1) out += `<path d="M${x + w / 2} ${y + rowH + 4}v${gap - 8}" stroke="#0E7C86" stroke-width="1.4" stroke-dasharray="3 3"/>`;
+      if (r < layers.length - 1) out += `<path d="M${x + w / 2} ${y + rowH + 4}v${gap - 8}" stroke="#0F766E" stroke-width="1.4" stroke-dasharray="3 3"/>`;
     });
   });
   return out + '</svg>';
@@ -292,7 +292,7 @@ export function about(C, lang) {
 <section class="section dark"><div class="wrap">
 <p class="kicker rv">${A.vision.kicker}</p>
 <p class="rv" style="font-size:clamp(24px,3vw,36px);line-height:1.35;font-weight:700;color:#fff;max-width:1000px;letter-spacing:-.015em">${A.vision.text}</p>
-<div class="grid-3" style="margin-top:48px">${A.vision.points.map((p) => `<p class="rv" style="color:#B6C3CA;border-top:1px solid rgba(231,238,240,.16);padding-top:16px;margin:0">${p}</p>`).join('')}</div>
+<div class="grid-3" style="margin-top:48px">${A.vision.points.map((p) => `<p class="rv" style="color:#B9C5D3;border-top:1px solid rgba(232,238,245,.16);padding-top:16px;margin:0">${p}</p>`).join('')}</div>
 </div></section>
 <section class="section"><div class="wrap">
 ${secHead(A.mission.kicker, A.mission.title)}

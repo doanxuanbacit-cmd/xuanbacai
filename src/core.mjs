@@ -23,33 +23,28 @@ export const SITE = {
 export const esc = (s = '') => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
 // ---------- Logo & motif ----------
-export const logoMark = (id = 'lg') => `<svg viewBox="0 0 40 40" fill="none" aria-hidden="true">
-<defs><linearGradient id="${id}" x1="0" y1="0" x2="40" y2="40"><stop stop-color="#12949F"/><stop offset="1" stop-color="#0A646C"/></linearGradient></defs>
-<ellipse cx="20" cy="20" rx="17.5" ry="6.8" transform="rotate(-32 20 20)" stroke="url(#${id})" stroke-width="2.2"/>
-<ellipse cx="20" cy="20" rx="17.5" ry="6.8" transform="rotate(32 20 20)" stroke="currentColor" stroke-opacity=".55" stroke-width="2.2"/>
-<ellipse cx="20" cy="20" rx="6.8" ry="17.5" stroke="currentColor" stroke-opacity=".28" stroke-width="1.6"/>
-<circle cx="20" cy="20" r="5" fill="url(#${id})"/>
-<circle cx="34.2" cy="11.4" r="2.2" fill="#5CC8D0"/></svg>`;
+// Logo mới 2026: vòng Kim (bạc) · quỹ đạo Thủy (cobalt→teal) · mầm Mộc (teal) · hạt nhân proton
+export const logoMark = (id = 'lg') => `<svg aria-hidden="true" viewBox="0 0 120 120" fill="none"><defs><linearGradient id="o${id}" x1="12" y1="96" x2="108" y2="30" gradientUnits="userSpaceOnUse"><stop stop-color="#1F6FEB"/><stop offset="1" stop-color="#14B8A6"/></linearGradient><radialGradient id="n${id}" cx=".38" cy=".35" r=".75"><stop stop-color="#5EEAD4"/><stop offset=".6" stop-color="#14B8A6"/><stop offset="1" stop-color="#0D9488"/></radialGradient></defs><path d="M111.00 39.40 A55 55 0 1 1 80.60 9.00" stroke="#8B98A9" stroke-width="4" stroke-linecap="round"/><ellipse cx="60" cy="64" rx="44" ry="15" transform="rotate(24 60 64)" stroke="url(#o${id})" stroke-width="6.5" stroke-opacity="0.5"/><ellipse cx="60" cy="64" rx="44" ry="15" transform="rotate(-24 60 64)" stroke="url(#o${id})" stroke-width="6.5"/><path d="M60 52 C61 40 70 31 82 25" stroke="#14B8A6" stroke-width="4.5" stroke-linecap="round"/><path transform="translate(82 25) rotate(62) scale(1)" d="M0 0 C-6 -6 -6 -14 0 -22 C6 -14 6 -6 0 0Z" fill="#14B8A6"/><circle cx="60" cy="64" r="13" fill="url(#n${id})"/></svg>`;
 
-export const brandImg = (size = 40, eager = true) => `<img src="/assets/logo-mark-96.png" width="${size}" height="${size}" alt="" decoding="async"${eager ? '' : ' loading="lazy"'}>`;
-export const heroMark = () => `<img class="mark" src="/assets/logo-mark.webp" width="300" height="300" alt="Proton ISF" decoding="async" fetchpriority="high">`;
+export const brandImg = (size = 40, eager = true) => `<img src="/assets/logo-mark.svg" width="${size}" height="${size}" alt="" decoding="async"${eager ? '' : ' loading="lazy"'}>`;
+export const heroMark = () => `<img class="mark" src="/assets/logo-mark-dark.svg" width="300" height="300" alt="Proton ISF" decoding="async" fetchpriority="high">`;
 
 export const orbitBig = () => `<svg viewBox="0 0 520 520" fill="none" aria-hidden="true">
-<g class="spin"><ellipse cx="260" cy="260" rx="245" ry="92" transform="rotate(-30 260 260)" stroke="#5CC8D0" stroke-opacity=".45" stroke-width="1.4"/>
-<circle cx="472" cy="138" r="7" fill="#5CC8D0" class="e"/></g>
-<g class="spin r"><ellipse cx="260" cy="260" rx="245" ry="92" transform="rotate(30 260 260)" stroke="#E7EEF0" stroke-opacity=".22" stroke-width="1.4"/>
-<circle cx="48" cy="138" r="5" fill="#E7EEF0" fill-opacity=".8"/></g>
-<g class="spin"><ellipse cx="260" cy="260" rx="92" ry="245" stroke="#E7EEF0" stroke-opacity=".12" stroke-width="1.2"/></g>
-<circle cx="260" cy="260" r="200" stroke="#E7EEF0" stroke-opacity=".06"/>
-<circle cx="260" cy="260" r="140" stroke="#E7EEF0" stroke-opacity=".07" stroke-dasharray="2 6"/>
-<circle cx="260" cy="260" r="60" fill="#12949F" fill-opacity=".14"/>
+<g class="spin"><ellipse cx="260" cy="260" rx="245" ry="92" transform="rotate(-30 260 260)" stroke="#5EEAD4" stroke-opacity=".45" stroke-width="1.4"/>
+<circle cx="472" cy="138" r="7" fill="#5EEAD4" class="e"/></g>
+<g class="spin r"><ellipse cx="260" cy="260" rx="245" ry="92" transform="rotate(30 260 260)" stroke="#E8EEF5" stroke-opacity=".22" stroke-width="1.4"/>
+<circle cx="48" cy="138" r="5" fill="#E8EEF5" fill-opacity=".8"/></g>
+<g class="spin"><ellipse cx="260" cy="260" rx="92" ry="245" stroke="#E8EEF5" stroke-opacity=".12" stroke-width="1.2"/></g>
+<circle cx="260" cy="260" r="200" stroke="#E8EEF5" stroke-opacity=".06"/>
+<circle cx="260" cy="260" r="140" stroke="#E8EEF5" stroke-opacity=".07" stroke-dasharray="2 6"/>
+<circle cx="260" cy="260" r="60" fill="#14B8A6" fill-opacity=".14"/>
 <circle cx="260" cy="260" r="34" fill="url(#core)"/>
-<defs><radialGradient id="core" cx=".35" cy=".35" r=".8"><stop stop-color="#5CC8D0"/><stop offset=".55" stop-color="#12949F"/><stop offset="1" stop-color="#0A646C"/></radialGradient></defs></svg>`;
+<defs><radialGradient id="core" cx=".35" cy=".35" r=".8"><stop stop-color="#5EEAD4"/><stop offset=".55" stop-color="#14B8A6"/><stop offset="1" stop-color="#115E59"/></radialGradient></defs></svg>`;
 
 export const orbitSmall = () => `<svg class="orb" viewBox="0 0 520 520" fill="none" aria-hidden="true">
-<ellipse cx="260" cy="260" rx="245" ry="92" transform="rotate(-30 260 260)" stroke="#5CC8D0" stroke-width="1.6"/>
-<ellipse cx="260" cy="260" rx="245" ry="92" transform="rotate(30 260 260)" stroke="#E7EEF0" stroke-width="1.4"/>
-<circle cx="260" cy="260" r="34" fill="#12949F"/></svg>`;
+<ellipse cx="260" cy="260" rx="245" ry="92" transform="rotate(-30 260 260)" stroke="#5EEAD4" stroke-width="1.6"/>
+<ellipse cx="260" cy="260" rx="245" ry="92" transform="rotate(30 260 260)" stroke="#E8EEF5" stroke-width="1.4"/>
+<circle cx="260" cy="260" r="34" fill="#14B8A6"/></svg>`;
 
 // ---------- Icons (Lucide, stroke 1.5) ----------
 const I = (d) => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${d}</svg>`;
@@ -91,7 +86,7 @@ export const ic = {
 export const UI = {
   vi: {
     nav: { cap: 'Năng lực', eco: 'Hệ sinh thái', proj: 'Dự án', part: 'Hợp tác', about: 'Giới thiệu', ins: 'Insights' },
-    cta: 'Đặt lịch trao đổi', skip: 'Bỏ qua đến nội dung chính', menu: 'Mở menu', tagline: 'AI-First Technology Fund',
+    cta: 'Đặt lịch trao đổi', skip: 'Bỏ qua đến nội dung chính', menu: 'Mở menu', tagline: 'Hạt nhân đổi mới sáng tạo',
     mega: [
       ['ai', 'AI-Driven Development', 'SDLC tự động hóa bằng AI Coding Agents, MVP trong 3–5 tuần', 'cpu'],
       ['cap#rwa', 'RWA Blockchain Layer-0', 'SOVVN Chain, Dong Protocol, token hóa tài sản thực', 'chain'],
@@ -106,7 +101,7 @@ export const UI = {
   },
   en: {
     nav: { cap: 'Capabilities', eco: 'Ecosystem', proj: 'Projects', part: 'Partnership', about: 'About', ins: 'Insights' },
-    cta: 'Book a 30-min call', skip: 'Skip to main content', menu: 'Open menu', tagline: 'AI-First Technology Fund',
+    cta: 'Book a 30-min call', skip: 'Skip to main content', menu: 'Open menu', tagline: 'The Positive Charge of Innovation',
     mega: [
       ['ai', 'AI-Driven Development', 'SDLC automated by AI coding agents — MVP in 3–5 weeks', 'cpu'],
       ['cap#rwa', 'RWA Blockchain Layer-0', 'SOVVN Chain, Dong Protocol, real-world asset tokenization', 'chain'],
@@ -121,7 +116,7 @@ export const UI = {
   },
   ja: {
     nav: { cap: '事業領域', eco: 'エコシステム', proj: '導入事例', part: '協業モデル', about: '会社概要', ins: 'インサイト' },
-    cta: '30分オンライン相談', skip: 'メインコンテンツへ移動', menu: 'メニューを開く', tagline: 'AI-First Technology Fund',
+    cta: '30分オンライン相談', skip: 'メインコンテンツへ移動', menu: 'メニューを開く', tagline: 'イノベーションの核へ',
     mega: [
       ['ai', 'AI駆動開発', 'AIコーディングエージェントによるSDLC自動化。MVPを3〜5週間で', 'cpu'],
       ['cap#rwa', 'RWAブロックチェーン', 'SOVVN Chain・Dong Protocolによる実物資産のトークン化', 'chain'],
@@ -179,7 +174,7 @@ export function layout({ lang, key, title, desc, body, alts, jsonld = [], noinde
   const langSw = ['vi', 'en', 'ja'].map((l) => `<a href="${alts[l] || ROUTES.home[l]}" hreflang="${l}" lang="${l}"${l === lang ? ' aria-current="true"' : ''}>${l.toUpperCase()}</a>`).join('');
   const org = {
     '@context': 'https://schema.org', '@type': 'Organization', '@id': SITE.url + '/#org',
-    name: SITE.legalEn, alternateName: ['Proton ISF', SITE.legal], url: SITE.url + '/', logo: SITE.url + '/assets/logo.jpg',
+    name: SITE.legalEn, alternateName: ['Proton ISF', SITE.legal], url: SITE.url + '/', logo: SITE.url + '/assets/logo.png',
     email: SITE.email, telephone: SITE.phone, taxID: SITE.taxId, foundingDate: '2019-10-28',
     address: { '@type': 'PostalAddress', streetAddress: 'Tầng 2, Tòa 29T1 Hoàng Đạo Thúy, P. Trung Hòa', addressLocality: 'Cầu Giấy, Hà Nội', addressCountry: 'VN' },
     sameAs: ['https://taisan.xyz/', 'https://cholangnghe.shop/', 'https://chosach.vn/'],
@@ -209,8 +204,9 @@ ${hreflang}
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta property="og:locale" content="${OG_LOCALE[lang]}">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#071019">
+<meta name="theme-color" content="#0B2545">
 <link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/assets/logo-mark.svg" type="image/svg+xml">
 <link rel="icon" href="/assets/favicon-48.png" type="image/png" sizes="48x48">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
@@ -271,7 +267,7 @@ function footer(lang, alts) {
 <div class="ftr-grid">
 <div>
 <a class="brand" href="${ROUTES.home[lang]}">${brandImg(44, false)}<span><b>PROTON ISF</b><small>${t.tagline}</small></span></a>
-<p class="legal"><b style="color:#E7EEF0">${name}</b><br>${t.f.tax}: ${SITE.taxId}<br>${addr}</p>
+<p class="legal"><b style="color:#E8EEF5">${name}</b><br>${t.f.tax}: ${SITE.taxId}<br>${addr}</p>
 <p class="legal"><a href="mailto:${SITE.email}">${SITE.email}</a> · <a href="tel:${SITE.phoneRaw}">${SITE.phone}</a></p>
 </div>
 <div><h5>${t.f.about}</h5><ul>
@@ -333,12 +329,12 @@ export const partnerStrip = (label) => `<section class="partners" aria-label="${
 
 // Hình minh hoạ cho case study (SVG trừu tượng theo chủ đề)
 export const caseVis = (kind) => {
-  const base = `<rect width="400" height="250" fill="#071019"/><g stroke="#E7EEF0" stroke-opacity=".06">${Array.from({ length: 9 }, (_, i) => `<path d="M${i * 50} 0V250"/>`).join('')}${Array.from({ length: 6 }, (_, i) => `<path d="M0 ${i * 50}H400"/>`).join('')}</g>`;
+  const base = `<rect width="400" height="250" fill="#06142A"/><g stroke="#E8EEF5" stroke-opacity=".06">${Array.from({ length: 9 }, (_, i) => `<path d="M${i * 50} 0V250"/>`).join('')}${Array.from({ length: 6 }, (_, i) => `<path d="M0 ${i * 50}H400"/>`).join('')}</g>`;
   const v = {
-    cln: `<g fill="none" stroke="#5CC8D0" stroke-width="1.6"><path d="M150 190c-8-40 4-80 30-96h40c26 16 38 56 30 96z"/><path d="M168 94c0-14 64-14 64 0"/><path d="M160 140h80M156 165h88" stroke-opacity=".5"/></g><g fill="#12949F"><circle cx="300" cy="70" r="5"/><circle cx="330" cy="110" r="4"/><circle cx="95" cy="80" r="4"/></g><g stroke="#5CC8D0" stroke-opacity=".5" stroke-dasharray="3 4"><path d="M232 110 300 70M232 130l98-20M168 120 95 80"/></g><rect x="280" y="150" width="70" height="44" rx="4" fill="none" stroke="#E7EEF0" stroke-opacity=".5"/><path d="M290 164h30M290 176h46" stroke="#E7EEF0" stroke-opacity=".4"/><text x="280" y="214" fill="#9FB0B9" font-size="10" font-family="sans-serif" letter-spacing="1.5">DPP · ON-CHAIN</text>`,
-    sovvn: `${Array.from({ length: 5 }, (_, i) => `<rect x="${40 + i * 68}" y="105" width="48" height="40" rx="4" fill="${i === 4 ? '#12949F' : 'none'}" stroke="#5CC8D0" stroke-width="1.5"/>${i < 4 ? `<path d="M${88 + i * 68} 125h20" stroke="#5CC8D0" stroke-width="1.5"/>` : ''}`).join('')}<g fill="#9FB0B9" font-family="monospace" font-size="9">${Array.from({ length: 5 }, (_, i) => `<text x="${48 + i * 68}" y="166">#${(2109 + i).toString()}</text>`).join('')}</g><text x="40" y="70" fill="#E7EEF0" font-size="13" font-family="sans-serif" font-weight="700" letter-spacing="2">SOVVN CHAIN</text><text x="40" y="88" fill="#9FB0B9" font-size="10" font-family="monospace">chain_id 21091981 · substrate L0</text>`,
-    scm: `<g fill="none" stroke="#5CC8D0" stroke-width="1.5"><path d="M40 190 C 100 170, 120 120, 170 130 S 260 80, 360 60"/></g><path d="M40 190 C 100 170, 120 120, 170 130 S 260 80, 360 60 V210 H40Z" fill="#12949F" fill-opacity=".12"/><g stroke="#E7EEF0" stroke-opacity=".35" stroke-dasharray="3 4"><path d="M250 90 C 290 80, 320 72, 360 68"/><path d="M250 100 C 290 100, 320 96, 360 92"/></g><g fill="#E7EEF0"><rect x="40" y="50" width="30" height="16" rx="2" fill-opacity=".85"/><rect x="80" y="50" width="30" height="16" rx="2" fill-opacity=".45"/><rect x="120" y="50" width="30" height="16" rx="2" fill-opacity=".25"/></g><text x="40" y="232" fill="#9FB0B9" font-size="10" font-family="sans-serif" letter-spacing="1.5">FORECAST · MILP · BOM</text>`,
-    chosach: `${Array.from({ length: 6 }, (_, i) => `<rect x="${70 + i * 30}" y="${80 + (i % 2) * 10}" width="22" height="${110 - (i % 2) * 10}" rx="2" fill="none" stroke="${i === 2 ? '#5CC8D0' : '#E7EEF0'}" stroke-opacity="${i === 2 ? 1 : .45}" stroke-width="1.5"/>`).join('')}<rect x="270" y="80" width="80" height="80" rx="6" fill="none" stroke="#5CC8D0" stroke-width="1.5"/><g fill="#5CC8D0">${[[282, 92], [302, 92], [282, 112], [322, 112], [302, 132], [322, 132], [282, 140]].map(([x, y]) => `<rect x="${x}" y="${y}" width="12" height="12"/>`).join('')}</g><text x="270" y="186" fill="#9FB0B9" font-size="10" font-family="sans-serif" letter-spacing="1.5">ISBN · ID</text>`,
+    cln: `<g fill="none" stroke="#5EEAD4" stroke-width="1.6"><path d="M150 190c-8-40 4-80 30-96h40c26 16 38 56 30 96z"/><path d="M168 94c0-14 64-14 64 0"/><path d="M160 140h80M156 165h88" stroke-opacity=".5"/></g><g fill="#14B8A6"><circle cx="300" cy="70" r="5"/><circle cx="330" cy="110" r="4"/><circle cx="95" cy="80" r="4"/></g><g stroke="#5EEAD4" stroke-opacity=".5" stroke-dasharray="3 4"><path d="M232 110 300 70M232 130l98-20M168 120 95 80"/></g><rect x="280" y="150" width="70" height="44" rx="4" fill="none" stroke="#E8EEF5" stroke-opacity=".5"/><path d="M290 164h30M290 176h46" stroke="#E8EEF5" stroke-opacity=".4"/><text x="280" y="214" fill="#A3B1C2" font-size="10" font-family="sans-serif" letter-spacing="1.5">DPP · ON-CHAIN</text>`,
+    sovvn: `${Array.from({ length: 5 }, (_, i) => `<rect x="${40 + i * 68}" y="105" width="48" height="40" rx="4" fill="${i === 4 ? '#14B8A6' : 'none'}" stroke="#5EEAD4" stroke-width="1.5"/>${i < 4 ? `<path d="M${88 + i * 68} 125h20" stroke="#5EEAD4" stroke-width="1.5"/>` : ''}`).join('')}<g fill="#A3B1C2" font-family="monospace" font-size="9">${Array.from({ length: 5 }, (_, i) => `<text x="${48 + i * 68}" y="166">#${(2109 + i).toString()}</text>`).join('')}</g><text x="40" y="70" fill="#E8EEF5" font-size="13" font-family="sans-serif" font-weight="700" letter-spacing="2">SOVVN CHAIN</text><text x="40" y="88" fill="#A3B1C2" font-size="10" font-family="monospace">chain_id 21091981 · substrate L0</text>`,
+    scm: `<g fill="none" stroke="#5EEAD4" stroke-width="1.5"><path d="M40 190 C 100 170, 120 120, 170 130 S 260 80, 360 60"/></g><path d="M40 190 C 100 170, 120 120, 170 130 S 260 80, 360 60 V210 H40Z" fill="#14B8A6" fill-opacity=".12"/><g stroke="#E8EEF5" stroke-opacity=".35" stroke-dasharray="3 4"><path d="M250 90 C 290 80, 320 72, 360 68"/><path d="M250 100 C 290 100, 320 96, 360 92"/></g><g fill="#E8EEF5"><rect x="40" y="50" width="30" height="16" rx="2" fill-opacity=".85"/><rect x="80" y="50" width="30" height="16" rx="2" fill-opacity=".45"/><rect x="120" y="50" width="30" height="16" rx="2" fill-opacity=".25"/></g><text x="40" y="232" fill="#A3B1C2" font-size="10" font-family="sans-serif" letter-spacing="1.5">FORECAST · MILP · BOM</text>`,
+    chosach: `${Array.from({ length: 6 }, (_, i) => `<rect x="${70 + i * 30}" y="${80 + (i % 2) * 10}" width="22" height="${110 - (i % 2) * 10}" rx="2" fill="none" stroke="${i === 2 ? '#5EEAD4' : '#E8EEF5'}" stroke-opacity="${i === 2 ? 1 : .45}" stroke-width="1.5"/>`).join('')}<rect x="270" y="80" width="80" height="80" rx="6" fill="none" stroke="#5EEAD4" stroke-width="1.5"/><g fill="#5EEAD4">${[[282, 92], [302, 92], [282, 112], [322, 112], [302, 132], [322, 132], [282, 140]].map(([x, y]) => `<rect x="${x}" y="${y}" width="12" height="12"/>`).join('')}</g><text x="270" y="186" fill="#A3B1C2" font-size="10" font-family="sans-serif" letter-spacing="1.5">ISBN · ID</text>`,
   };
   return `<svg viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice" aria-hidden="true">${base}${v[kind]}</svg>`;
 };

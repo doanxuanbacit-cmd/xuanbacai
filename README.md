@@ -121,7 +121,7 @@ scripts/             Server xem thử, bộ kiểm tra
 - [ ] Đặt `CALCOM_LINK`, `GA4_ID` → Redeploy
 - [ ] Google Search Console: thêm `protonisf.com`, gửi `https://protonisf.com/sitemap.xml`
 - [ ] Kiểm tra ảnh chia sẻ: dán link vào Facebook Sharing Debugger / LinkedIn Post Inspector
-- [x] Logo thật đã gắn (header, footer, hero, favicon, ảnh chia sẻ). Khi có file vector, thay `src/static/assets/logo-mark.webp` để nét sắc hơn khi phóng lớn
+- [x] Bộ nhận diện 2026 (logo vector, bảng màu Navy–Bạc–Teal) đã áp toàn site. File logo gốc SVG/PNG nằm trong thư mục `brand/logo/`
 - [x] Hồ sơ năng lực tiếng Việt đã gắn (`src/static/files/`). Còn thiếu bản tiếng Anh `Proton_ISF_Capability_Profile_2026_EN.pdf`
 - [ ] Thay chữ viết tắt ở mục Ban lãnh đạo bằng ảnh chân dung
 - [ ] Xác nhận các mục cần kiểm chứng (bên dưới)

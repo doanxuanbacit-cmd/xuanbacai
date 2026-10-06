@@ -77,7 +77,7 @@ cpSync(join(ROOT, 'src/app.js'), join(OUT, 'assets/app.js'));
 if (existsSync(join(ROOT, 'src/static'))) cpSync(join(ROOT, 'src/static'), OUT, { recursive: true });
 cpSync(join(ROOT, 'src/static/favicon.ico'), join(OUT, 'favicon.ico'));
 writeFileSync(join(OUT, 'site.webmanifest'), JSON.stringify({
-  name: 'Proton ISF', short_name: 'Proton ISF', start_url: '/', display: 'standalone', background_color: '#071019', theme_color: '#071019',
+  name: 'Proton ISF', short_name: 'Proton ISF', start_url: '/', display: 'standalone', background_color: '#06142A', theme_color: '#0B2545',
   icons: [{ src: '/assets/icon-192.png', sizes: '192x192', type: 'image/png' }, { src: '/assets/icon-512.png', sizes: '512x512', type: 'image/png' }],
 }, null, 2));
 
